@@ -31,24 +31,43 @@ class Item < ActiveRecord::Base
 	# end
 
 
-	 state_machine :state, initial: :incomplete do
+	 # state_machine :state, initial: :incomplete do
 
-    event :in_progress do
-      transition incomplete: :in_progress 
-    end
+  #   event :in_progress do
+  #     transition incomplete: :in_progress 
+  #   end
 
-    event :completed do
-      transition any => :completed     
-    end
+  #   event :completed do
+  #     transition any => :completed     
+  #   end
 
-    after_transition to: :in_progress do |item|
-      item.in_progress_at = Time.current
-      item.save
-    end
+  #   after_transition to: :in_progress do |item|
+  #     item.in_progress_at = Time.current
+  #     item.save
+  #   end
 
-    after_transition to: :completed do |item|
-      item.completed_at = Time.current
-      item.save
-    end
-  end
+  #   after_transition to: :completed do |item|
+  #     item.completed_at = Time.current
+  #     item.save
+  #   end
+  # end
+
+  state_machine :state, :initial => :incomplete do
+  	event :switch_to_in_progress do 
+  		transition :incomplete => :in_progress 
+  	end
+
+  	event switch_to_complete do
+  		transition :in_progress => :complete
+  	end
+
+  	event_switch_to_
+
+
+
+
+
+
+
+
 end
