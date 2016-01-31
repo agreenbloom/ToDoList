@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def show
   	@item = Item.find(params[:id])
+    Item.increment_counter(:view_counter, @item.id) 
   end
 
   def new
