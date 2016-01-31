@@ -16,11 +16,13 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
-      redirect_to item_path, notice: "Item Created Successfully"
+      redirect_to item_path(@item.id), notice: "Item Created Successfully"
     else
       render :new
     end
   end
+
+
 
   private
 

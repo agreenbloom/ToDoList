@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'slim', '~> 3.0', '>= 3.0.6'
 gem 'formtastic-bootstrap'
+
 gem 'draper', '~> 1.3'
 gem 'state_machines-activerecord'
 
