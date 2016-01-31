@@ -26,6 +26,8 @@ gem 'state_machines-activerecord'
 # Use for searching
 gem 'ransack'
 
+gem 'sidekiq'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
