@@ -23,6 +23,9 @@ gem 'formtastic-bootstrap'
 gem 'draper', '~> 1.3'
 gem 'state_machines-activerecord'
 
+# Use for searching
+gem 'ransack'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
