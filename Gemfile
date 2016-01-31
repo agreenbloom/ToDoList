@@ -28,6 +28,7 @@ gem 'ransack'
 
 gem 'sidekiq'
 
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
