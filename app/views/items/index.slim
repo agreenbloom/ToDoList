@@ -2,5 +2,6 @@
 
 - @items.each do |item|
   h1
-  	= item.title
-  = item.description
+  	=  link_to item.title, item_path(item)
+
+
