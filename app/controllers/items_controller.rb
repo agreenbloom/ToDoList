@@ -1,11 +1,14 @@
 class ItemsController < ApplicationController
 
   def index
-  	@items = Item.all
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
   end
 
   def show
   	@item = Item.find(params[:id])
+    # Item.increment_counter(:view_counter, @item.id) 
+    CounterOnItemView.perform_async(@item.id)
   end
 
   def new

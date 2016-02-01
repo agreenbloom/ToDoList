@@ -1,12 +1,17 @@
+= search_form_for(@q) do |f| 
+	= f.label :title_or_description_cont 
+	= f.search_field :title_or_description_cont
+	= f.submit
 
-
+= sort_link(@q, :created_at, 'Oldest', default_order: :asc)
+span &nbsp; &nbsp;
+= sort_link(@q, :title, 'Alphabetically', default_order: :desc) 
+ 
 - @items.each do |item|
-  h1
-  	=  link_to item.title, item_path(item)
+	h1
+  	= link_to item.title, item_path(item)
+ 		
 
- - Item.state_machine.states.each do |state|
-  li class=("#{'active' if params[:state] == state.name.to_s}") 
-    = link_to state.name, tickets_path(:state => state.name)
 
 
 
