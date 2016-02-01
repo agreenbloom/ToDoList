@@ -52,18 +52,6 @@ class Item < ActiveRecord::Base
   #   end
   # end
 
-  state_machine :state, :initial => :incomplete do
-  	event :switch_to_in_progress do 
-  		transition :incomplete => :in_progress 
-  	end
-
-  	event switch_to_complete do
-  		transition :in_progress => :complete
-  	end
-
-  	event_switch_to_
-
-
 
 
 
