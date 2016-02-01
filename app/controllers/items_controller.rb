@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource
+
   def index
     @q = Item.ransack(params[:q])
     @items = @q.result(distinct: true).decorate
@@ -18,6 +20,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.user = current_user
 
     if @item.save
       redirect_to item_path(@item.id), notice: "Item Created Successfully"
@@ -36,7 +39,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-  	params.require(:item).permit(:title, :description)
+  	params.require(:item).permit(:title, :description, :user_id)
   end
 
 
