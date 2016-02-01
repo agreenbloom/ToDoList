@@ -4,4 +4,9 @@
   h1
   	=  link_to item.title, item_path(item)
 
+ - Item.state_machine.states.each do |state|
+  li class=("#{'active' if params[:state] == state.name.to_s}") 
+    = link_to state.name, tickets_path(:state => state.name)
+
+
 

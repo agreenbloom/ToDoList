@@ -52,6 +52,18 @@ class Item < ActiveRecord::Base
   #   end
   # end
 
+  state_machine :state, :initial  => :pending do
+  	event :complete do 
+  		transition :pending => :completed
+  	end
+
+  	event :wont_do do 
+  		transition :pending => :declined
+  	end
+
+
+ 	end
+
 
 
 
