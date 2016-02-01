@@ -6,11 +6,16 @@
 = sort_link(@q, :created_at, 'Oldest', default_order: :asc)
 span &nbsp; &nbsp;
 = sort_link(@q, :title, 'Alphabetically', default_order: :desc) 
+span &nbsp; &nbsp;
+= sort_link(@q, :state, 'State', default_order: :desc) 
+
  
 - @items.each do |item|
 	h1
   	= link_to item.title, item_path(item)
- 		
+  	span &nbsp; &nbsp;
+  	= item.completion_status
+
 
 
 
