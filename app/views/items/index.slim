@@ -1,14 +1,15 @@
 h1 Tasks
 
 = search_form_for(@q) do |f|
-	= f.label :title_or_description_cont
-	= f.search_field :title_or_description_cont
-	= f.submit
+  = f.label :title_or_description_or_state_cont
+  = f.search_field :title_or_description_or_state_cont
+  = f.submit
 
 = sort_link(@q, :created_at, 'Oldest', default_order: :asc)
 span &nbsp; &nbsp;
 = sort_link(@q, :title, 'Alphabetically', default_order: :desc)
-
+span &nbsp; &nbsp;
+= sort_link(@q, :state, 'State', default_order: :desc)
 
 
 table.table
@@ -16,3 +17,5 @@ table.table
     tr
       td
         = item.title
+      td
+        = item.completion_status

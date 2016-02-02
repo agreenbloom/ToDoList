@@ -1,38 +1,22 @@
 class Item < ActiveRecord::Base
-	# attr_accessor :incomplete, :pending, :complete
 
-	# state_machine :state, initial: :draft do
-	# 	before_transition draft: any - :draft, do: :set_incomplete
+  state_machine :state, :initial  => :pending do
+  	event :button_press do 
+  		transition :pending => :completed
+  	end
 
-	# 	after_transition on: :is_pending, do: :set_pending
-	# 	after_transition on: :is_complete, do: :set_complete	
-	# end
+  	event :button_press do	
+  		transition :completed => :pending
+  	end 
 
-	# def set_incomplete
-	# 	@incomplete = true
-	# end
+  	event :button_reject do 
+  		transition :pending => :wont_do
+  	end
 
-	# def set_pending
-	# 	@incomplete = false	
-	# 	@pending = true
-	# end
-
-	# def set_complete
-	# 	@pending = false
-	# 	@complete = true 
-	# end
+  	event :button_press do
+  		transition :wont_do => :pending
+  	end
+ 	end
 
 
-	# def initialize
-	# 	@incomplete = false
-	# 	@pending = false
-	# 	@complete = false
-	# 	super()
-	# end
-
-
-
-
-
-
-end
+end   
