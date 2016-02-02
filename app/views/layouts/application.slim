@@ -2,7 +2,7 @@ doctype html
 html
   head
     title BitCats Training Assignment
-  
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
 		= csrf_meta_tags
@@ -10,8 +10,9 @@ html
   body
 		p .notice = notice
 		p .alert = alert
-		p
-  		|  Hello 
+		- if user_signed_in?
+        p
+  		|  Hello
   		= current_user.email
   		== yield
 
