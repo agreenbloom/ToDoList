@@ -1,5 +1,5 @@
 $(document).on('ready page:load', function () {
-  // you code here
+  //js code to help us with drag and drop http://jsfiddle.net/pmw57/tzYbU/205/
 
   var fixHelperModified = function(e, tr) {
       var $originals = tr.children();
