@@ -6,3 +6,5 @@
   = f.actions do
     = f.action :submit, :as => :button
     = f.action :cancel, :as => :link
+
+	= f.action :submit, label: 'Done', button_html: {value: :check}

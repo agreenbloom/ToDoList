@@ -1,11 +1,11 @@
 class Item < ActiveRecord::Base
 
   state_machine :state, :initial  => :pending do
-  	event :check do 
+  	event :button do 
   		transition :pending => :completed
   	end
 
-  	event :check do	
+  	event :button do	
   		transition :completed => :pending
   	end 
 
@@ -13,7 +13,7 @@ class Item < ActiveRecord::Base
   		transition :pending => :wont_do
   	end
 
-  	event :check do
+  	event :button do
   		transition :wont_do => :pending
   	end
  	end

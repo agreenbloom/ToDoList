@@ -32,6 +32,20 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update 
+    @item.state_event = params[:button]
+
+    if @item.update_attributes 
+      flash[:success] = 'The item was updated'
+    else
+      flash[:error] = 'The item could not be updated'
+      render :edit
+    end
+  end
 
   private
 
