@@ -20,5 +20,12 @@ class UserTest < ActiveSupport::TestCase
       u.errors[:email].must_be :present? # Must have error for missing email
     end
 
+    it "is invalid without a password" do
+      invalid_params = { email: "test@test.com"}
+      u = User.new(invalid_params)
+
+      u.wont_be :valid?
+      u.errors[:password].must_be :present?
+    end
   end
 end
