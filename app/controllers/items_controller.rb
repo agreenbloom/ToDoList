@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   def show
   	@item = Item.find(params[:id])
-    # Item.increment_counter(:view_counter, @item.id) 
+    # Item.increment_counter(:view_counter, @item.id)
     CounterOnItemView.perform_async(@item.id)
   end
 
@@ -26,6 +26,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to items_path
+  end
 
 
   private
