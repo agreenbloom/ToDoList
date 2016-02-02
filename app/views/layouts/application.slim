@@ -11,10 +11,11 @@ html
 		p .notice = notice
 		p .alert = alert
 		- if user_signed_in?
-      p
-  		|  Hello
-  		= current_user.email
-  		== yield
+        p
+  		  |  Hello
+  		  = current_user.email
+
+        == yield
 
   		- if user_signed_in?
   			= button_to('Logout', destroy_user_session_path, :method => :delete)
