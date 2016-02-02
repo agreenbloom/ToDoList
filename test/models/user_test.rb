@@ -27,5 +27,10 @@ class UserTest < ActiveSupport::TestCase
       u.wont_be :valid?
       u.errors[:password].must_be :present?
     end
+
+    let(:user_test)   { User.create! email: 'test@test.com', password: "password" }
+    it 'works' do
+      user_test.must_be_instance_of User
+    end
   end
 end
