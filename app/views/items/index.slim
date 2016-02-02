@@ -16,8 +16,13 @@ table.table
   - @items.each do |item|
     tr
       td
-        = item.title
+        = link_to item.title, item
       td
         = item.completion_status
+      / td
+      / how do you create checkbox so items can transition between states????
+        / .checkbox
+        /   = select :state, :selected => item.state.to_s, :collection => item.state_transitions, :value_method => :event, :prompt => item.state.to_s
+
       td
         = link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, item_path(item), method: :delete, class: "btn btn-danger"
