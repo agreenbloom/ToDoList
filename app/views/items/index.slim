@@ -16,7 +16,7 @@ table.table
   - @items.each do |item|
     tr
       td
-        = item.title
+        = link_to item.title, item
       td
         = item.completion_status
       td
