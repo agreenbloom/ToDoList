@@ -24,13 +24,27 @@ class ItemTest < ActiveSupport::TestCase
       @item.description.must_equal "this is a test description"
     end
   end
-  # is it not recommended to use describe something do? - docs are confusing
-  # describe Item do
-  #   subject { Item.new }
-  #   it {must have_valid(:title).when("Test") }
-  #   it { wont have_valid(:title).when("", nil, "bad")}
+
+  # describe "state" do
+  #   it "is invalid without a state" do
+  #     invalid_params = { title: "test title", description: "this is a test description", state: ""}
+  #     i = Item.create!(invalid_params)
+
+  #     i.wont_be :valid?
+  #     i.errors[:state].must_be :present?
+  #   end
   # end
 
+# will finish this test when I merge w/ master to have user_id colum
+  # describe "user " do
+  #   it "should have a user" do
+  #     item_params_with_user = { title: "test title", description: "this is a test description", user_id: @user}
+  #     i = Item.create!(item_params_with_user)
+  #     i.will_be :valid?
+  #   end
+  # end
+
+  #do we test state machiene stuff or is the assumption that it works because it is a gem doing  all the hard work?
 
 
 end
