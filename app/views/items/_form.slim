@@ -1,12 +1,9 @@
 = semantic_form_for @item do |f|
-	h2
-	= f.inputs do
-	  = f.input :title
-  	= f.input :description
-	
-	= f.actions do
-			
-		= f.action :submit, :as => :button
-		= f.action :cancel, :as => :link
-		= f.action :submit, :as => :button, label: 'Done', button_html: {value: :complete}
+  h2
+  	= f.inputs do
+      = f.input :title
+      = f.input :description
+  = f.actions do
+    = f.action :submit, :as => :button
+    = f.action :cancel, :as => :link
 

@@ -1,3 +1,6 @@
 h1 Edit ToDo Item
 	= render "form"
 
+= semantic_form_for @item do |f|
+	= f.action :submit, label: 'Done', button_html: {value: :pending}
+	
