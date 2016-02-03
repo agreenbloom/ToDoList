@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   def update 
     @item = Item.find(params[:id])
     
-    @item.state_event = params[:pending]
+    @item.state_event = params[:button]
     
     if @item.update_attributes(item_params)
       flash[:success] = 'The item was updated'
