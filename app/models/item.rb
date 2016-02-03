@@ -1,20 +1,20 @@
 class Item < ActiveRecord::Base
 
   state_machine :state, :initial  => :pending do
-  	event :button do 
-  		transition :pending => :completed
+  	event :complete do 
+  		transition from: :pending, to: :completed
   	end
 
-  	event :button do	
-  		transition :completed => :pending
+  	event :incomplete do	
+  		transition from: :completed, to: :pending
   	end 
 
   	event :reject do 
-  		transition :pending => :wont_do
+  		transition from: :pending, to: :wont_do
   	end
 
-  	event :button do
-  		transition :wont_do => :pending
+  	event :incomplete do
+  		transition from: :wont_do, to: :pending
   	end
  	end
 
