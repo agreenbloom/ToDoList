@@ -37,10 +37,13 @@ class ItemsController < ApplicationController
   end
 
   def update 
-    @item.state_event = params[:button]
-
-    if @item.update_attributes 
+    @item = Item.find(params[:id])
+    
+    @item.state_event = params[:pending]
+    
+    if @item.update_attributes(item_params)
       flash[:success] = 'The item was updated'
+      redirect_to item_path(@item)
     else
       flash[:error] = 'The item could not be updated'
       render :edit
@@ -50,7 +53,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-  	params.require(:item).permit(:title, :description)
+  	params.require(:item).permit(:title, :description, :state, :view_counter)
   end
 
 
