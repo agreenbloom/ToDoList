@@ -14,9 +14,9 @@ span &nbsp; &nbsp;
 
 table.table
   - @items.each do |item|
-    tr
+    tr draggable="true"
       td
-        = item.title
+        = link_to item.title, item_path(item)
       td
         = item.completion_status
       td

@@ -7,11 +7,12 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-
-    p.notice
-      = notice
-    p.alert
-      = alert
+    - if flash[:notice]
+      p.notice
+        = notice
+    - if flash[:alert]
+      p.alert
+        = alert
     - if user_signed_in?
       p
         | Hello
