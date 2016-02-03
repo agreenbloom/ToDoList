@@ -3,7 +3,6 @@ $(document).on 'ready page:load', ->
   dragSrcEl = null
 
   handleDragStart = (e) ->
-    @style.opacity = '0.6'
     dragSrcEl = this
     e.dataTransfer.effectAllowed = 'move'
     e.dataTransfer.setData 'text/html', @innerHTML
@@ -24,7 +23,7 @@ $(document).on 'ready page:load', ->
     @classList.remove 'over'
     return
 
-  handleDrop = (e) -> 
+  handleDrop = (e) ->
     if e.stopPropagation
       e.stopPropagation()
     false
@@ -34,12 +33,12 @@ $(document).on 'ready page:load', ->
       @innerHTML = e.dataTransfer.getData('text/html')
 
 
-  
+
   handleDragEnd = (e) ->
     [].forEach.call trs, (tr) ->
       tr.classList.remove 'over'
       return
-    return 
+    return
 
 
   [].forEach.call trs, (tr) ->
