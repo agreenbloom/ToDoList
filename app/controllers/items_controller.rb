@@ -38,12 +38,11 @@ class ItemsController < ApplicationController
 
   def update 
     @item = Item.find(params[:id])
-    
+
     @item.state_event = params[:button]
-    
-    if @item.update_attributes(item_params)
+
+    if @item.update_attributes 
       flash[:success] = 'The item was updated'
-      redirect_to item_path(@item)
     else
       flash[:error] = 'The item could not be updated'
       render :edit
