@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 h1 Tasks
 
 = search_form_for(@q) do |f|
@@ -9,6 +12,10 @@ h1 Tasks
 = sort_link(@q, :created_at, 'Oldest', default_order: :asc)
 span &nbsp; &nbsp;
 = sort_link(@q, :title, 'Alphabetically', default_order: :desc)
+<<<<<<< HEAD
+span &nbsp; &nbsp;
+= sort_link(@q, :state, 'State', default_order: :desc)
+=======
 
 span &nbsp; &nbsp;
 = sort_link(@q, :state, 'State', default_order: :desc)
@@ -19,6 +26,7 @@ span &nbsp; &nbsp;
   	=  link_to item.title, item_path(item)
 
 
+>>>>>>> master
 
 table.table
   - @items.each do |item|

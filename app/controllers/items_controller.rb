@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
+  
   def index
     @q = Item.ransack(params[:q])
     @items = @q.result(distinct: true).decorate
