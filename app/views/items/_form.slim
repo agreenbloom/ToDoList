@@ -6,4 +6,11 @@
   = f.actions do
     = f.action :submit, :as => :button
     = f.action :cancel, :as => :link
-= render "state"
+ 
+  - if @item.pending?
+    = f.action :submit, :as => :button, label: 'Done', button_html: {value: :complete}
+    =f.action :submit, :as => :button, label: 'wont do', button_html: {value: :reject}
+  - elsif @item.completed?
+    = f.action :submit, :as => :button, label: 'To Do', button_html: {value: :incomplete}
+  - elsif @item.wont_do?
+    = f.action :submit, :as => :button, label: 'To Do', button_html: {value: :incomplete}
