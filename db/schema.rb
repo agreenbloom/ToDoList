@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20160203211234) do
     t.datetime "updated_at",               null: false
     t.string   "state"
     t.integer  "view_counter", default: 0
-    t.integer  "user_id"
   end
 
   add_index "items", ["state"], name: "index_items_on_state"
