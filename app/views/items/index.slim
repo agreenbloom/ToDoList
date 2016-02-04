@@ -26,3 +26,7 @@ table.table
 
       td
         = link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, item_path(item), method: :delete, class: "btn btn-danger"
+      / td
+      /   = render partial: 'state', locals: {path: {controller: "items", action: (new)}}
+
+  

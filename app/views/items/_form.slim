@@ -6,8 +6,4 @@
   = f.actions do
     = f.action :submit, :as => :button
     = f.action :cancel, :as => :link
-	
-	= f.action :submit, :as => :button, label: 'Done', button_html: {value: :complete}
-	= f.action :submit, :as => :button, label: 'To Do', button_html: {value: :incomplete}
- 	= f.action :submit, :as => :button, label: 'Will Not Do', button_html: {value: :reject}
- 	
+= render "state"

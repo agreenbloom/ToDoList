@@ -1,0 +1,8 @@
+= semantic_form_for @item do |f|
+
+	- if @item.pending?
+		= f.action :submit, :as => :button, label: 'Done', button_html: {value: :complete}
+	- elsif @item.completed?
+	 	= f.action :submit, :as => :button, label: 'To Do', button_html: {value: :incomplete}
+	- else 
+		= f.action :submit, :as => :button, label: 'Will Not Do', button_html: {value: :reject}
