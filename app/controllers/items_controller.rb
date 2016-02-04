@@ -38,17 +38,10 @@ class ItemsController < ApplicationController
 
   def update 
     @item = Item.find(params[:id])
-<<<<<<< HEAD
 
     @item.state_event = params[:button]
 
     if @item.update_attributes 
-=======
-    
-    @item.state_event = params[:pending]
-    
-    if @item.update_attributes(item_params)
->>>>>>> parent of 52b3c06... button being rendered for item when pending -> complete
       flash[:success] = 'The item was updated'
     else
       flash[:error] = 'The item could not be updated'
