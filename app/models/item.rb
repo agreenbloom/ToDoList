@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
 
   state_machine :state, :initial  => :pending do
-  	event :complete do 
+    event :complete do 
   		transition from: :pending, to: :completed
   	end
 
