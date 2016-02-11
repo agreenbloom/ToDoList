@@ -5,7 +5,12 @@ Add stuff here.
 Even more stuff
 mooore stuff
 Fred is adding more stuff
+Jill changing README
 
+Fred is adding more stuff
+mooore jill stuff
+jill adding stuff
+just for fun
 
 
 This README would normally document whatever steps are necessary to get the
